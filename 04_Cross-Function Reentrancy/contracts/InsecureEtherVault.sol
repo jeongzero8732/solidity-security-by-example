@@ -11,6 +11,7 @@
 pragma solidity 0.8.13;
 
 import "./Dependencies.sol";
+import "hardhat/console.sol";
 
 contract InsecureEtherVault is ReentrancyGuard {
     mapping (address => uint256) private userBalances;
@@ -34,6 +35,7 @@ contract InsecureEtherVault is ReentrancyGuard {
         require(success, "Failed to send Ether");
 
         userBalances[msg.sender] = 0;
+        //console.log();
     }
 
     function getBalance() external view returns (uint256) {
